@@ -1,0 +1,15 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="card-container" *ngFor="let item of tasks">
+    <app-card [taskName]="item"></app-card>
+  </div>
+  <app-add-task (openModal)="openNewTaskComp($event)"></app-add-task>
+</div>
+<div *ngIf="openTaskForm">
+  <ng-container *ngTemplateOutlet="modal"></ng-container>
+</div>
+
+
+<ng-template #modal>
+    <app-new-task-form></app-new-task-form>
+</ng-template>
